@@ -543,12 +543,17 @@
           <blockquote>
             
               
-                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+                <p>📚 本文由<a href="https://resorie.github.io/">Resory</a>创作，转载请注明出处</p>
 
               
             
               
-                <p>本文永久链接是：<a href=https://resorie.github.io/blog/posts/hello-world/>https://resorie.github.io/blog/posts/hello-world/</a></p>
+                <p>🧾 博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>🔗本文永久链接是：<a href=https://resorie.github.io/blog/posts/hello-world/>https://resorie.github.io/blog/posts/hello-world/</a></p>
               
             
           </blockquote>
@@ -649,6 +654,7 @@
     
     <div id="valine_container" class="valine_thread">
   <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+    <!-- valine 添加一言 -->
   <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
   <script type="text/javascript">
     jinrishici.load(function(result) {
@@ -925,7 +931,7 @@
 
   
   
-<script src="/blog/js/valine.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js"></script>
 
 
 <script>
@@ -971,6 +977,9 @@
     }
 
     var valine = new Valine();
+    var friends = ''.split(',');
+    var master = '92d70aaa12d1c8acc3808b30f0ca4fcc'.split(',');
+    
     valine.init({
       el: '#valine_container',
       meta: meta,
@@ -987,8 +996,10 @@
       enableQQ: 'true',
       recordIP: 'false',
       requiredFields: requiredFields,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/zyoushuo/Blog/emoji/',
+      emojiMaps: emojiMaps,
+      master: master,
+      friends: friends
     })
   }
 

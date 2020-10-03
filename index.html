@@ -849,7 +849,7 @@ Qu...
 
   
   
-<script src="/blog/js/valine.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js"></script>
 
 
 <script>
@@ -895,6 +895,9 @@ Qu...
     }
 
     var valine = new Valine();
+    var friends = ''.split(',');
+    var master = '92d70aaa12d1c8acc3808b30f0ca4fcc'.split(',');
+    
     valine.init({
       el: '#valine_container',
       meta: meta,
@@ -911,8 +914,10 @@ Qu...
       enableQQ: 'true',
       recordIP: 'false',
       requiredFields: requiredFields,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/zyoushuo/Blog/emoji/',
+      emojiMaps: emojiMaps,
+      master: master,
+      friends: friends
     })
   }
 
