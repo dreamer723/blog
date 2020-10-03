@@ -19,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive - Resory</title>
+  <title>Category: 数据结构 - Resory</title>
   
 
   
@@ -441,14 +441,14 @@
  
 <script> 
   // 处理封面 此时 jquery 还没加载 
-  if ("half" == "none") { // 移除封面 
+  if ("none" == "none") { // 移除封面 
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
   } else { 
-    if ("half" == "half") { // 半屏 
+    if ("none" == "half") { // 半屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
       document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("half" == "full") { // 全屏 
+    } else if ("none" == "full") { // 全屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
       document.getElementsByClassName('scroll-down')[0].style.display = ""; 
     } 
@@ -461,34 +461,72 @@
         
         
 
+
 <div class='l_main'>
-	
-	  <article id="arc" class="post article white-box reveal shadow">
-			
-			
-				
-				
-					
-						
-						<h2>2020</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/blog/posts/about-ODT/">
-									<time>10-03</time>
-									
-										浅谈珂朵莉树（ODT）
-									
-									
-										&nbsp;<i class="fas fa-headphones-alt music" aria-hidden="true"></i>
-									
-									
-									
-								</a>
-						</div>
-				
-			
-	  </article>
-	
+  
+    
+      
+  <section class="post-list">
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/posts/about-ODT/">
+        浅谈珂朵莉树（ODT）
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2020-10-03</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/blog/categories/%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/posts/about-ODT/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+  
+
+
+    
+  
 </div>
 <aside class='l_side'>
   
