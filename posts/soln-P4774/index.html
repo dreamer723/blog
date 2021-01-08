@@ -552,7 +552,7 @@
 
   
   <p><a target="_blank" rel="noopener" href="https://loj.ac/p/2721">题目链接</a></p>
-<p>算是一个比较简单的黑题，数论萌（神）新（仙）练（秒）手（切）题。</p>
+<p>算是一个比较简单的NOI题，数论萌（神）新（仙）练（秒）手（切）题。</p>
 <h2 id="前置知识：扩展中国剩余定理（excrt）"><a href="#前置知识：扩展中国剩余定理（excrt）" class="headerlink" title="前置知识：扩展中国剩余定理（excrt）"></a>前置知识：扩展中国剩余定理（excrt）</h2><p>求解一个线性同余方程组：</p>
 <script type="math/tex; mode=display">
 \left\{
@@ -638,10 +638,10 @@ x \equiv a_i \cdot atk_i^{-1} \pmod{p_i}</script><p>于是我们得到了得到�
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-18T21:04:10+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-07T22:13:44+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年12月18日</p>
+    <p>更新于：2021年1月7日</p>
   </a>
 </div>
 
@@ -716,6 +716,11 @@ x \equiv a_i \cdot atk_i^{-1} \pmod{p_i}</script><p>于是我们得到了得到�
 
   
     <div class="prev-next">
+      
+        <a class='prev' href='/blog/posts/about-kmp/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>浅谈KMP算法——单模式串匹配</p>
+          <p class='content'>$\text{KMP}$ 算法是一种单模式串匹配算法，由 $\mathsf{D.E.Knuth}$、$\mathsf{J.H.Morris}$ 和 $\mathsf{V.R.Pratt}$ 在 ...</p>
+        </a>
       
       
         <a class='next' href='/blog/posts/about-ODT/'>
@@ -1532,5 +1537,21 @@ const ROOT =  ("/blog/" || "/").endsWith('/') ? ("/blog/" || "/") : ("/blog//" |
   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/resorie/dotfiles@master/scripts/fireworks.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/sakura.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
 <script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/blog/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
