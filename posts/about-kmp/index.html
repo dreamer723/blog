@@ -558,13 +558,8 @@
 \begin{aligned}
 S: \qquad & \texttt{ABABCBAABA} \\
 P: \qquad & \texttt{ABA}
-\end{aligned}
-\\ \quad
-\\
-\color{green}{\texttt{ABA}}\texttt{BCBCA}\color{green}{\texttt{ABA}}\\
-\Uparrow \qquad \ \ \ \ \Uparrow\\
-\color{green}{\texttt{ABA} \qquad \ \ \ \texttt{ABA}} \\
-\small\textsf{pos=0} \qquad \small\textsf{pos=8}</script><p>主串为 <code>ABABCBAABA</code>，模式串为<code>ABA</code>，匹配结果是出现两次，分别从下标<code>0</code>和<code>8</code>开始，其中主串下标从0开始。</p>
+\end{aligned}</script><p><img src="https://cdn.jsdelivr.net/gh/resorie/images@master/kmp_ex.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/resorie/images@master/kmp_ex.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="kmp_ex"></p>
+<p>主串为 <code>ABABCBAABA</code>，模式串为<code>ABA</code>，匹配结果是出现两次，分别从下标<code>0</code>和<code>8</code>开始，其中主串下标从0开始。</p>
 <p>我们先从最朴素的暴力算法（BF算法）说起。</p>
 <h2 id="暴力（Brute-Force算法）"><a href="#暴力（Brute-Force算法）" class="headerlink" title="暴力（Brute-Force算法）"></a>暴力（Brute-Force算法）</h2><p>最朴素的算法就是，对于每个位置循环匹配，遇到不相同的字符就返回。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bf</span><span class="params">(<span class="built_in">string</span> s,<span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>,n = s.size(),m = p.size();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n - m + <span class="number">1</span>;i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j ++)</span><br><span class="line">            <span class="keyword">if</span>(s[i + j] != p[j]) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(j == m) ++ cnt,<span class="built_in">printf</span>(<span class="string">&quot;pos=%d\n&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -573,30 +568,15 @@ P: \qquad & \texttt{ABA}
 \begin{aligned}
 S: \qquad & \texttt{ABABCBAABA} \\
 P: \qquad & \texttt{ABA}
-\end{aligned}
-\\ \quad
-\\
-\texttt{ABABCBCAABA}\\
-\color{green}{\texttt{ABA}}\ \small\textsf{pos=0} \quad \ \ \ \\
-\texttt{AB}\color{red}{\texttt{A}} \qquad \quad \ \\
-\color{red}{\texttt{A}} \qquad \quad \ \\
-\texttt{AB}\color{red}{\texttt{A}} \quad \\
-\color{red}{\texttt{A}} \quad \\
-\color{red}{\texttt{A}} \\
-\ \ \ \ \color{red}{\texttt{A}} \\
-\qquad \ \ \texttt{A}\color{red}{\texttt{B}} \\
-\qquad \qquad \qquad \ \ \ \color{green}{\texttt{ABA}}\ \small\textsf{pos=8} \\</script><p>这种方法的时间复杂度最坏为 $O(nm)$，最好为 $O(n)$，并且很容易被卡，不能接受。</p>
+\end{aligned}</script><p><img src="https://cdn.jsdelivr.net/gh/resorie/images@master/kmp_bf.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/resorie/images@master/kmp_bf.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="kmp_bf"></p>
+<p>这种方法的时间复杂度最坏为 $O(nm)$，最好为 $O(n)$，并且很容易被卡，不能接受。</p>
 <h2 id="暴力算法的优化思路"><a href="#暴力算法的优化思路" class="headerlink" title="暴力算法的优化思路"></a>暴力算法的优化思路</h2><p>注意到，暴力匹配每次失配时都会将开始的下标增加1，而配对多次时这样的弊端就十分明显了。因此，我们要考虑降低比较的趟数。我们发现，如果匹配 $S[l\dots (l+\operatorname{len}(P)-1)]$ 是在下标 $r$ 处失败的，那么主串的子串 $S[l\dots r - 1]$ 一定等于 $P[0\dots r-l]$！比如：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 S: \qquad & \texttt{ALGORITHM} \\
 P: \qquad & \texttt{ALPHA}
-\end{aligned}
-\\
-\begin{aligned}
-& \color{green}{\texttt{AL}}\texttt{GORITHM}\\
-& \color{green}{\texttt{AL}}\color{red}{\texttt{PHA}}
-\end{aligned} \\
+\end{aligned}</script><p><img src="https://cdn.jsdelivr.net/gh/resorie/images@master/kmp_pre.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/resorie/images@master/kmp_pre.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="kmp_pre"></p>
+<script type="math/tex; mode=display">
 \small\text{（绿色这一段是相等的）}</script><p>于是这能告诉我们，主串的某个子串等于格式串的某个前缀。我们就要用这个信息跳过一些不可能成功的比较。</p>
 <h2 id="前缀函数"><a href="#前缀函数" class="headerlink" title="前缀函数"></a>前缀函数</h2><p>对于一个字符串 $s$，它的前缀函数 $\pi$ 定义为一个长度为 $\operatorname{len}(s)$ 的数组（在 OI 中一般写作<code>nxt</code>数组），其中 $\pi(i)$ 的定义为 $s$ 的子串 $s[0\dots i]$ 中最长的相等的真前缀和真后缀的长度。用数学语言描述如下：</p>
 <script type="math/tex; mode=display">
@@ -718,7 +698,7 @@ P: \qquad & \texttt{ABCABCACAB}
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-10T20:39:15+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-10T21:36:29+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年1月10日</p>
